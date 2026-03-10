@@ -1,5 +1,6 @@
 export class Segedlet {
     
+
     /**
      * CSV konvertáló segéd metódus
      * @param {string} csv 
@@ -25,6 +26,7 @@ export class Segedlet {
     
     }
     
+
     /**
      * Tabla beolvaso metodus
      * @param {string} tablaUtvonal 
@@ -43,6 +45,7 @@ export class Segedlet {
     
     }
     
+
     // Adatok mentése tömbbe
     async adatokBetoltese() {
     
@@ -55,6 +58,11 @@ export class Segedlet {
         return { ar, suti, tartalom };
     }
     
+    /**
+     * Betöltött adatok indexelése, az adatok kezelhetőségéhez
+     * @param {array} adatok 
+     * @returns 
+     */
     indexeles(adatok) {
     
         const sutiById          = new Map();
@@ -98,4 +106,6 @@ export class Segedlet {
             tartalomBySuti
         };
     }
+
+    
 }
