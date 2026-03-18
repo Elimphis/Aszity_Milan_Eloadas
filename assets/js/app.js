@@ -35,14 +35,14 @@ async function init() {
 
 }
 
-async function reInit () {
+async function reInit (lista = sutik) {
 
     const renderer    = new SutiRenderer(
         SUTEMENY_KONTENER,
         sutiService
     );
 
-    renderer.render(sutik);
+    renderer.render(lista);
 
 }
 
@@ -173,5 +173,19 @@ document.addEventListener('click', (e) => {
     
         default: return;
     }
+
+})
+
+document.getElementById('suti-kereso').addEventListener('keyup', (e) => {
+    
+    const keresettSzo = e.target.value.toLowerCase();
+
+    const szurt = sutik.filter(suti => 
+        suti.nev.toLowerCase().includes(keresettSzo) ||
+        suti.tipus.toLowerCase().includes(keresettSzo)
+    );
+
+    reInit(szurt);
+
 
 })
