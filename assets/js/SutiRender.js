@@ -60,7 +60,7 @@ export class SutiRenderer {
                         :
                             ``
                     }
-                    <div class="card-badge pointer" title="Sütemény szerkesztése">
+                    <div class="card-badge pointer" data-id="${suti.id}" suti-akcio="suti-modositas" title="Sütemény szerkesztése">
                         <svg width="1rem" height="1rem" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#0042aa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
                     </div>
                     <div class="card-badge pointer" data-id="${suti.id}" suti-akcio="suti-torles" title="Sütemény törlése">

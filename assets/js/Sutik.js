@@ -51,6 +51,7 @@ export class Sutik {
 
 
     ujSuti(suti, ar) {
+
         this.db.suti.unshift(suti);
         this.db.sutiById.set(suti.id, suti);
 
@@ -59,6 +60,7 @@ export class Sutik {
         }
 
         this.db.arBySuti.get(suti.id).push(ar);
+
     }
 
 
@@ -72,6 +74,26 @@ export class Sutik {
         this.db.arBySuti.delete(id);
         this.db.tartalomBySuti.delete(id);
 
+    }
+
+
+    sutiModositas (id, ujAdatok) {
+
+        id = Number(id);
+
+        const suti = this.db.sutiById.get(id);
+
+        if (!suti) return;
+
+        suti.nev      = ujAdatok.nev;
+        suti.tipus    = ujAdatok.tipus;
+        suti.dijazott = ujAdatok.dijazott;
+
+        this.db.arBySuti.set(id, [{
+            sutiid  : id,
+            ertek   : ujAdatok.ar,
+            egyseg  : "db"
+        }]);
 
     }
 

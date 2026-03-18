@@ -19,10 +19,11 @@
         <form class="flex row gap-1 w-fa card padding-1 border-soft box-shadow">
 
             <input type="search" name="suti-kereso" placeholder="Sütemények keresése...." class="w-fa" />
+            <button type="button" id="suti-felvetele-trigger" class="flex w-fc">Sütemény felvétele</button>
 
         </form>
 
-        <form class="flex row gap-1 w-fa card padding-1 border-soft box-shadow">
+        <form class="hidden row gap-1 w-fa card padding-1 border-soft box-shadow" id="suti-letrehozas-kontener">
 
             <input type="text" id="suti-neve" placeholder="Adja meg a sütemény nevét" />
             <input type="text" id="suti-tipusa" placeholder="Adja meg a sütemény típusát" />
@@ -33,6 +34,26 @@
             </div>
 
             <button type="button" id="suti-felvetele" class="flex w-fc">Sütemény felvétele</button>
+
+            <span class="flex align-center pointer ml-auto" id="suti-letrehozas-kontener-bezaras">Bezárás</span>
+
+        </form>
+
+        <form class="hidden row gap-1 w-fa card padding-1 border-soft box-shadow" id="suti-modositas-kontener">
+
+            <input type="text" id="suti-modositas-neve" placeholder="Adja meg a sütemény nevét" />
+            <input type="text" id="suti-modositas-tipusa" placeholder="Adja meg a sütemény típusát" />
+            <input type="text" id="suti-modositas-ara" placeholder="Adja meg a sütemény árát" />
+            <div class="flex row align-center gap-1">
+                <label for="suti-modositas-dijazott">Díjazott sütemény</label>
+                <input type="checkbox" name="suti-modositas-dijazott" id="suti-modositas-dijazott" value="1" />
+            </div>
+
+            <input type="hidden" id="suti-modositas-id" />
+
+            <button type="button" id="suti-modositas-mentes" class="flex w-fc">Sütemény mentése</button>
+
+            <span class="flex align-center pointer ml-auto" id="suti-modositas-kontener-bezaras">Bezárás</span>
 
         </form>
 

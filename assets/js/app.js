@@ -46,7 +46,9 @@ async function reInit () {
 
 }
 
+
 init();
+
 
 document.getElementById('suti-felvetele').addEventListener('click', () => {
 
@@ -84,21 +86,88 @@ document.getElementById('suti-felvetele').addEventListener('click', () => {
     reInit();
 });
 
+
+document.getElementById('suti-modositas-mentes').addEventListener('click', () => {
+
+    if (
+        document.getElementById('suti-modositas-neve').value == '' ||
+        document.getElementById('suti-modositas-tipusa').value == '' ||
+        document.getElementById('suti-modositas-ara').value == ''
+    ) {
+
+        alert('Minden mező kitöltése kötelező!');
+        return;
+
+    }
+
+    const kivalasztottSutiId = document.getElementById('suti-modositas-id').value;
+
+    const sutiAdat = {
+        id       : kivalasztottSutiId,
+        dijazott : document.getElementById('suti-modositas-dijazott').checked ? "-1" : "0",
+        nev      : document.getElementById('suti-modositas-neve').value,
+        tipus    : document.getElementById('suti-modositas-tipusa').value,
+        ar       : document.getElementById('suti-modositas-ara').value
+    };
+
+    sutiService.sutiModositas(kivalasztottSutiId, sutiAdat);
+
+    reInit();
+});
+
+
+document.getElementById('suti-felvetele-trigger').addEventListener('click', () => {
+
+    document.getElementById('suti-letrehozas-kontener').classList.replace('hidden', 'flex');
+
+});
+
+
+document.getElementById('suti-letrehozas-kontener-bezaras').addEventListener('click', () => {
+
+    document.getElementById('suti-letrehozas-kontener').classList.replace('flex', 'hidden');
+
+});
+
+
+document.getElementById('suti-modositas-kontener-bezaras').addEventListener('click', () => {
+
+    document.getElementById('suti-modositas-kontener').classList.replace('flex', 'hidden');
+
+});
+
+
 document.addEventListener('click', (e) => {
 
-    const torlendoSuti = e.target.closest('[suti-akcio]')
+    const kivalasztottSuti = e.target.closest('[suti-akcio]')
 
-    if (!torlendoSuti) return;
+    if (!kivalasztottSuti) return;
 
-    const sutiAkcio = torlendoSuti.getAttribute("suti-akcio");
+    const sutiAkcio         = kivalasztottSuti.getAttribute("suti-akcio");
+    let kivalasztottSutiId  = Number(kivalasztottSuti.getAttribute('data-id'));
 
     switch (sutiAkcio) {
+
         case 'suti-torles':
     
-            let torlendoSutiId = torlendoSuti.getAttribute('data-id');
-            sutiService.sutiTorles(torlendoSutiId)
+            sutiService.sutiTorles(kivalasztottSutiId)
             sutik = sutiService.osszesSuti();
             reInit();
+
+        break;
+
+        case 'suti-modositas':
+
+            document.getElementById('suti-modositas-kontener').classList.replace('hidden', 'flex');
+
+            const kivalasztottSutiAdat = sutiService.sutiById(kivalasztottSutiId);
+            const kivalasztottSutiArai = sutiService.sutiArai(kivalasztottSutiId).map(a => `${a.ertek} Ft / ${a.egyseg}`).join(", ");
+
+            document.getElementById('suti-modositas-neve').value        = kivalasztottSutiAdat.nev
+            document.getElementById('suti-modositas-tipusa').value      = kivalasztottSutiAdat.tipus
+            document.getElementById('suti-modositas-ara').value         = kivalasztottSutiArai
+            document.getElementById('suti-modositas-dijazott').checked  = kivalasztottSutiAdat.dijazott === "-1";
+            document.getElementById('suti-modositas-id').value          = kivalasztottSutiId;
 
         break;
     
