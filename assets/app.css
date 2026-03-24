@@ -106,3 +106,11 @@ footer {
     text-decoration: line-through;
     color: #666;
 }
+
+tr td, tr th { text-align: center; padding: .5rem; }
+
+table tr:nth-child(even) {
+
+    background-color: #dedede;
+
+}

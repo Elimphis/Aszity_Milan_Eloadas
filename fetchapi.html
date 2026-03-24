@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ászity Milán, Reketyei Péter" />
+
+    <link rel="stylesheet" href="assets/app.css" />
+
+    <title>Előadás Házi feladat</title>
+</head>
+<body>
+    <header>
+        <h1>Web programozás-1 Előadás Házi feladat</h1>
+    </header>
+
+    <main class="flex col align-center gap-1 padding-1" id="main">
+        
+        <div>
+
+            <h3 id="addedit"></h3>
+            
+            <form class="flex row gap-1 w-fa card padding-1 border-soft box-shadow" id="suti-letrehozas-kontener">
+
+                <input type="text" id="suti-neve" placeholder="Adja meg a sütemény nevét" />
+                <input type="text" id="suti-tipusa" placeholder="Adja meg a sütemény típusát" />
+                <div class="flex row align-center gap-1">
+                    <label for="suti-dijazott">Díjazott sütemény</label>
+                    <input type="checkbox" name="suti-dijazott" id="suti-dijazott" value="1" />
+                </div>
+
+                <button type="button" id="suti-felvetele" class="flex w-fc">Sütemény felvétele</button>
+
+            </form>
+
+            <br>
+
+            <p id="message"></p>
+
+            <br><br>
+
+            <table class="w-fa">
+                <thead>
+                    <tr>
+                        <th>Azonosító</th>
+                        <th>Sütemény neve</th>
+                        <th>Sütemény típusa</th>
+                        <th>Díjazott</th>
+                        <th width="150">Tevékenységek</th>
+                    </tr>
+                </thead>
+                <tbody id="sutiTabla"></tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <footer class="flex row gap-1">
+        <span>Ászity Milán - LRBW3B</span>
+        <span>Reketyei Péter - XXXXX</span>
+    </footer>
+
+    <script src="assets/fetch/app.js" type="module"></script>
+
+</body>
+</html>
