@@ -67,7 +67,7 @@ button:hover {
     filter: opacity(.9);
 }
 
-input[type='search'], input[type='text'] {
+input[type='search'], input[type='text'], input[type='number'] {
 
     padding: .5rem 1rem;
 

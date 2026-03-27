@@ -189,6 +189,8 @@ const App = () => {
     <div>
       <h1>Sütemény CRUD alkalmazás</h1>
 
+      <br />
+
       <h2>{szerkesztes ? "Sütemény szerkesztése" : "Új sütemény hozzáadása"}</h2>
 
       {!szerkesztes ? (
@@ -201,6 +203,8 @@ const App = () => {
           sutiSzerkeszt={updateSutemeny}
         />
       )}
+
+      <br />
 
       <h2>Sütemények listája</h2>
 

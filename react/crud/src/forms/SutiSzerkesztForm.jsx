@@ -37,9 +37,9 @@ const SutiSzerkesztForm = props => {
 
       <label>Díjazott</label>
       <input
-        type="number"
+        type="checkbox"
         name="dijazott"
-        value={sutemeny?.dijazott || 0}
+        checked={sutemeny?.dijazott || false}
         onChange={handleInputChange}
       />
 

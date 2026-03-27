@@ -14,6 +14,7 @@ const AddSutiForm = props => {
 
   return (
     <form
+      className="flex row align-center gap-1"
       onSubmit={event => {
         event.preventDefault();
         if (!sutemeny.nev || !sutemeny.tipus) return;
@@ -39,9 +40,9 @@ const AddSutiForm = props => {
 
       <label>Díjazott</label>
       <input
-        type="number"
+        type="checkbox"
         name="dijazott"
-        value={sutemeny.dijazott}
+        checked={sutemeny.dijazott}
         onChange={handleInputChange}
       />
 
