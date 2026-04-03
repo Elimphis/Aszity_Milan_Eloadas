@@ -278,6 +278,14 @@ async function fetchSuti () {
         });
 
 
+    })
+    .catch(error => {
+
+        MESSAGE.innerText = "Hiba történt a folyamat közben!";
+        MESSAGE.style.color = "red";
+
+        console.log(error)
+
     });
 
 }
